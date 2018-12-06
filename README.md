@@ -5,11 +5,12 @@ setting things up in such a way that we can run Abaqus CAE with hardware-acceler
 
 ## Preparations
 
-1. Make sure you have Singularity 2.4.2 installed.
-2. Symlink the `.iso` installer for Abaqus 2017 into a clone of this repository.
-3. Ensure that the license server(s) listed in `assets/cae-UserIntentions_CODE.xml` (see `licenseServer1`/`licenseServer2`/`licenseServer3` in that file) are accessible 
+1. Make sure you have Singularity installed.
+2. Create a tar archive containing the AM_SIM_Abaqus_Extend.AllOS folder and symlink to it in this folder named abaqus.tar
+3. Create a folder to store the image in if you do not already have one.
+4. Ensure that the license server(s) listed in `assets/cae-UserIntentions_CODE.xml` (see `flexServer1`/`flexServer2`/`flexServer3` in that file) are accessible 
    i.e. if they are only reachable after bringing up a VPN connection, then bring that up now.
-4. If `/tmp` is 'small' (e.g. 'only' 16GB) then Singularity will run out of space when trying to build your Abaqus image, 
+5. If `/tmp` is 'small' (e.g. 'only' 16GB) then Singularity will run out of space when trying to build your Abaqus image, 
    so you may want to create a directory somewhere else for Singularity to write temporary files to:
 
     ```bash
@@ -24,7 +25,7 @@ Right, let's start building our Singularity image.  The build process as defined
 3. Kicks off the Abaqus installer, using 'UserIntentions' files to automate the install.
 
 ```bash
-sudo SINGULARITY_TMPDIR=$HOME/.cache/singularity singularity build ~/imgs/sing/abaqus-2017-centos-7.img abaqus-2017-centos-7.def
+sudo SINGULARITY_TMPDIR=$HOME/.cache/singularity singularity build {Path where container is to be stored}/abaqus-2018-centos-7.img abaqus-2018-centos-7.def
 ```
 
 ## Running the container
@@ -32,16 +33,16 @@ sudo SINGULARITY_TMPDIR=$HOME/.cache/singularity singularity build ~/imgs/sing/a
 To run Abaqus CAE with (NVIDIA) hardware-accelerated graphics:
 
 ```
-singularity run --nv ~/imgs/sing/abaqus-2017-centos-7.img 
+singularity run --nv {your_singularity_container}
 ```
 
 which is equivalent to:
 
 ```
-singularity exec --nv ~/imgs/sing/abaqus-2017-centos-7.img vglrun abaqus cae
+singularity exec --nv {path_to_your_singularity_container} vglrun abaqus cae
 ```
 
-I need to prefix the above command(s) with `optirun` to ensure I use my NVIDIA GPU and not my on-board graphics chip.
+You may need to prefix the above command(s) with `optirun` to ensure I use my NVIDIA GPU and not my on-board graphics chip.
 
 Alternatively, to run Abaqus without hardware-accelerated graphics:
 

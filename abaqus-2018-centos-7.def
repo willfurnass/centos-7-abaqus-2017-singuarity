@@ -3,7 +3,7 @@ From: centos:7
 
 %setup
     mkdir -p ${SINGULARITY_ROOTFS}/iso-unpacked/
-    bsdtar xf Abaqus2017.iso -C ${SINGULARITY_ROOTFS}/iso-unpacked/
+    tar xf abaqus.tar -C ${SINGULARITY_ROOTFS}/iso-unpacked/
     mkdir -p ${SINGULARITY_ROOTFS}/cfgs/
     cp assets/VirtualGL.repo ${SINGULARITY_ROOTFS}/etc/yum.repos.d
     cp assets/UserIntentions_DOC.xml ${SINGULARITY_ROOTFS}/cfgs/
@@ -12,13 +12,14 @@ From: centos:7
     cp assets/UserIntentions_CAA_Additional.xml ${SINGULARITY_ROOTFS}/cfgs/
 
 %post
-    cd /iso-unpacked/
+    cd /iso-unpacked/AM_SIM_Abaqus_Extend.AllOS/
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which
     yum clean all && rm -rf /var/cache/yum
+    cd /iso-unpacked/AM_SIM_Abaqus_Extend.AllOS/
     ksh ./1/SIMULIA_Documentation/AllOS/1/StartTUI.sh --silent /cfgs/UserIntentions_DOC.xml
     ksh ./2/SIMULIA_AbaqusServices/Linux64/1/StartTUI.sh --silent /cfgs/simulation-services-UserIntentions_CODE.xml
-    ksh ./2/SIMULIA_Abaqus_CAE/Linux64/1/StartTUI.sh --silent /cfgs/cae-UserIntentions_CODE.xml
+    ksh ./3/SIMULIA_Abaqus_CAE/Linux64/1/StartTUI.sh --silent /cfgs/cae-UserIntentions_CODE.xml
     ksh ./2/SIMULIA_AbaqusServices_CAA_API/Linux64/1/StartTUI.sh --silent /cfgs/UserIntentions_CAA_Additional.xml
 
 %environment

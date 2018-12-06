@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Media mediaLevel="419" mediaName="CODE\linux_a64\SIMULIA_Abaqus_CAE.media\media">
 	<SetVariable name="browseAnyway_differentSolver" setByUser="true" setType="default">
-            <SetPath value="/opt/abaqus/2017/V6R2017x"/>
+            <SetPath value="/opt/abaqus/2018/V6R2018x"/>
 	</SetVariable>
 	<SetVariable name="commandsDir" setByUser="true" setType="default">
-            <SetPath value="/opt/abaqus/2017/Commands"/>
+            <SetPath value="/opt/abaqus/2018/Commands"/>
 	</SetVariable>
 	<SetVariable name="pluginsDir" setByUser="true" setType="default">
-            <SetPath value="/opt/abaqus/2017/CAE/plugins/2017"/>
+            <SetPath value="/opt/abaqus/2018/CAE/plugins/2018"/>
 	</SetVariable>
 	<SetVariable name="serverType_radioButton" setByUser="true" setType="default"/>
 	<SetVariable name="serverType_radioButton?flex" setByUser="true" setType="default">
@@ -17,14 +17,25 @@
 		<SetBoolean value="false"/>
 	</SetVariable>
 	<SetVariable name="licenseServer1" setByUser="true" setType="default">
-		<SetText value="abaquslm.sheffield.ac.uk"/>
+		<SetText value="1763@lic1.hrz.tu-darmstadt.de"/>
 	</SetVariable>
 	<SetVariable name="licenseServer2" setByUser="true" setType="default">
-		<SetText value=""/>
+		<SetText value="1763@lic2.hrz.tu-darmstadt.de"/>
 	</SetVariable>
 	<SetVariable name="licenseServer3" setByUser="true" setType="default">
-		<SetText value=""/>
+		<SetText value="1763@lic3.hrz.tu-darmstadt.de"/>
 	</SetVariable>
+
+	<SetVariable name="flexServer1" setByUser="true" setType="default">
+		<SetText value="1763@lic1.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+	<SetVariable name="flexServer2" setByUser="true" setType="default">
+		<SetText value="1763@lic2.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+	<SetVariable name="flexServer3" setByUser="true" setType="default">
+		<SetText value="1763@lic3.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+
 	<SetVariable name="docConfigType" setByUser="true" setType="default"/>
 	<SetVariable name="docConfigType?docConfigType_path" setByUser="true" setType="default">
 		<SetBoolean value="true"/>
@@ -36,10 +47,10 @@
 		<SetBoolean value="false"/>
 	</SetVariable>
 	<SetVariable name="docRootPath" setByUser="true" setType="default">
-            <SetPath value="/opt/abaqus/2017/Documentation"/>
+            <SetPath value="/opt/abaqus/2018/Documentation"/>
 	</SetVariable>
 	<SetVariable name="TARGET_PATH" setByUser="true" setType="default">
-            <SetPath value="/opt/abaqus/2017/CAE/2017"/>
+            <SetPath value="/opt/abaqus/2018/CAE/2018"/>
 	</SetVariable>
 	<SetVariable name="FinishPanel" setByUser="true" setType="default"/>
 </Media>
