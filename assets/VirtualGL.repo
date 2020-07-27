@@ -2,5 +2,5 @@
 name=VirtualGL official RPMs
 baseurl=https://sourceforge.net/projects/virtualgl/files
 gpgcheck=1
-gpgkey=http://pgp.mit.edu/pks/lookup?op=get&search=0x6BBEFA1972FEB9CE
+gpgkey=https://www.virtualgl.org/key/VGL-GPG-KEY
 enabled=1
